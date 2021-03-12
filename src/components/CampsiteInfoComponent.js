@@ -3,7 +3,6 @@ import { Card, CardImg, CardImgOverlay, CardText, CardBody, CardTitle } from 're
 
 class CampsiteInfoComponent extends Component {
     renderCampsite(campsite) {
-        console.log(campsite)
         return (
             <div className='col-md-5 m-1'>
                 <Card>
@@ -17,18 +16,21 @@ class CampsiteInfoComponent extends Component {
         )
     }
     
-renderComments(comments) {
+    renderComments(comments) {
+    console.log(comments)
     if (comments) {
         return (
             <div className='col-md-5 m-1'> 
             <h4>Comments</h4>
             {comments.map((comment) => {
                 return (
-                    <div>
+                    
+                    <div className='row'>
                         <p>{comment.text}<br/>
-                         -- {comment.author}, {' '}
-                         {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
+                        -- {comment.author}, {' '}
+                        {new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'short', day: '2-digit'}).format(new Date(Date.parse(comment.date)))}</p>
                     </div>
+                    
                 )})
             }
             </div>
@@ -43,9 +45,11 @@ renderComments(comments) {
     render() {
         if (this.props.campsite) {
         return (
-            <div className="row">
-                {this.renderCampsite(this.props.campsite)}
-                {this.renderComments(this.props.campsite.comments)}
+            <div className='container'>
+                <div className="row">
+                    {this.renderCampsite(this.props.campsite)}
+                    {this.renderComments(this.props.campsite.comments)}
+                </div>
             </div>
         );
         }
