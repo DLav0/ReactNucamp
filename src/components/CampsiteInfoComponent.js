@@ -120,7 +120,7 @@ class CommentForm extends Component {
                         <label htmlFor="contactType">
                                 Rating
                         </label>
-                        <Control.select model=".contactType" id="contactType" name="contactType"
+                        <Control.select model=".rating" id="contactType" name="contactType"
                             className="form-control" defaultValue="1">
                             <option>1</option>
                             <option>2</option>
@@ -135,7 +135,7 @@ class CommentForm extends Component {
                                 Your Name
                             </label>
                             <Control.text 
-                            model=".name"
+                            model=".author"
                             id="name"
                             name="name"
                             className="form-control"
@@ -145,9 +145,9 @@ class CommentForm extends Component {
                                 maxLength: (val) => val && val.length <= 15
                             }}
                             />
-                            <Errors className="text-danger" model=".name" show="touched" component="div"
+                            <Errors className="text-danger" model=".author" show="touched" component="div"
                                 messages={{
-                                    required: "REquired",
+                                    required: "Required",
                                     minLength: "Must be 2 letters",
                                     maxLength: "must be less than 15 characters"
                                 }}
@@ -158,7 +158,7 @@ class CommentForm extends Component {
                                 Comment
                             </label>
                             <Control.textarea
-                            model=".comment"
+                            model=".text"
                             id="comment"
                             name="comment"
                             className="form-control"
