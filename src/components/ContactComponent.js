@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Breadcrumb, BreadcrumbItem, Button, Label, Col, Row } from 'reactstrap';
 import { Link } from 'react-router-dom';
-import { render } from '@testing-library/react';
 import { Control, Form, Errors } from 'react-redux-form';
 
 const required = val => val && val.length;
